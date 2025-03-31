@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: velib_dataset
+    database: <your-gcp-project-id>
+    schema: velib_dataset
+    description: "Raw data sources for the Velib project"
+    tables:
+      - name: arrondissement
+        description: "Paris arrondissement (district) geographic boundaries and metadata"
+        columns:
+          - name: c_ar
+            description: "Arrondissement ID (unique identifier)"
+          - name: l_aroff
+            description: "Official arrondissement name"
+          - name: c_arinsee
+            description: "INSEE (French statistical office) code"
+          - name: surface
+            description: "Surface area in square meters"
+          - name: geom
+            description: "Geometry data representing district boundaries"
+      - name: velib
+        description: "Hourly snapshots of Velib station status and information"
+        loaded_at_field: "ingest_time"
+        columns:
+          - name: stationcode
+            description: "Unique station identifier"
+          - name: name
+            description: "Station name"
+          - name: is_installed
+            description: "Flag indicating if station is installed (OUI/NON)"
+          - name: numbikesavailable
+            description: "Number of bikes available at the station"
+          - name: numdocksavailable
+            description: "Number of empty docks available at the station"
+          - name: coordonnees_geo
+            description: "Geographic coordinates (latitude/longitude)"
+          - name: file_name
+            description: "Source file name this record was loaded from"
+          - name: ingest_time
+            description: "Timestamp when data was ingested"

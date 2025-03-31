@@ -1,0 +1,19 @@
+# .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.log
+*.parquet
+*.csv
+/target/
+/dbt_modules/
+*.tfstate*
+.terraform/
+venv/
+velib_data/
+draft.md
+myenv/
+.DS_Store

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: mart_arr_station_density
+    description: "Analysis of station density per arrondissement (stations per km²)"
+    columns:
+      - name: arrondissement_id
+        description: "Unique identifier for the arrondissement"
+      - name: arrondissement_name
+        description: "Human-readable name of the arrondissement"
+      - name: station_count
+        description: "Total number of stations within the arrondissement"
+      - name: surface_km2
+        description: "Surface area in square kilometers"
+      - name: station_density
+        description: "Station density (stations per km²)"
+    

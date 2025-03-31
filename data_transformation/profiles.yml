@@ -1,0 +1,10 @@
+# The name that dbt_project.yml will use to refer to this project
+velib-bigquery-db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: <your-gcp-project-id>
+      dataset: velib_dataset 
+      threads: 6 

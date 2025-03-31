@@ -1,0 +1,6 @@
+project_id   = "<your-gcp-project-id>"
+region       = "us-east1"
+bucket_name  = "velib-data-bucket"
+zone = "us-east1-b"
+composer_name = "velib-composer"
+dataset_name = "velib_dataset"

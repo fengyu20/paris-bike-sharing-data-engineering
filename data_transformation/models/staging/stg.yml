@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_station_code
+    description: "Incremental model extracting unique station codes. This reference table is used to check if all stations have corresponding static data."
+    columns:
+      - name: station_code
+        description: "Unique identifier for Velib stations"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_station_status
+    description: "Incremental model containing updating velib station status."
+    columns:
+      - name: station_code
+        description: "Unique identifier for Velib stations"
+      - name: numbikesavailable
+        description: "Number of bikes available at the station"
+      - name: numdocksavailable
+        description: "Number of empty docks available at the station"
+      - name: update_time
+        description: "Timestamp of the status update"
+        tests:
+          - not_null
+    
+  - name: stg_station_info
+    description: "Static information about Velib stations including location and identifiers"
+    columns:
+      - name: station_code
+        description: "Unique identifier for Velib stations"
+        tests:          
+          - not_null
+      - name: station_name
+        description: "Human-readable name of the station"
+      - name: geo_location
+        description: "Geographic coordinates (latitude/longitude) as a GEOGRAPHY type"
+      - name: postal_code
+        description: "Postal code where the station is located"
+
+  - name: stg_arrondissement_info
+    description: "Paris district (arrondissement) information including boundaries"
+    columns:
+      - name: arrondissement_id
+        description: "Unique identifier for the arrondissement"
+        tests:
+          - not_null
+      - name: arrondissement_name
+        description: "Human-readable name of the arrondissement"
+      - name: surface_km2
+        description: "Surface area in square kilometers"
+      - name: geom
+        description: "Geometry data representing district boundaries as a GEOGRAPHY type"
